@@ -6,4 +6,106 @@
     android:layout_height="match_parent"
     tools:context=".Settings">
 
+    <RadioGroup
+        android:id="@+id/algorithmSelect"
+        android:layout_width="364dp"
+        android:layout_height="139dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.457"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.189">
+
+        <RadioButton
+            android:id="@+id/simpleButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Simple" />
+
+        <RadioButton
+            android:id="@+id/conwayButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Conway" />
+
+        <RadioButton
+            android:id="@+id/trig1Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Trig 1"
+            android:checked="true"/>
+
+        <RadioButton
+            android:id="@+id/trig2Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Trig2" />
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="118dp"
+        android:layout_height="35dp"
+        android:text="Ustawienia"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintBottom_toTopOf="@+id/algorithmSelect"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.219" />
+
+    <TextView
+        android:id="@+id/algorithmsLabel"
+        android:layout_width="119dp"
+        android:layout_height="25dp"
+        android:text="Algorytm"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintBottom_toTopOf="@+id/algorithmSelect"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.075"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.657" />
+
+    <TextView
+        android:id="@+id/hemisphereLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Półkula"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintBottom_toTopOf="@+id/hemisphereSelect"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.062"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/algorithmSelect"
+        app:layout_constraintVertical_bias="0.487" />
+
+    <RadioGroup
+        android:id="@+id/hemisphereSelect"
+        android:layout_width="364dp"
+        android:layout_height="98dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.468"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/algorithmSelect"
+        app:layout_constraintVertical_bias="0.17">
+
+        <RadioButton
+            android:id="@+id/northHemisphereButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Północna - N"
+            android:checked="true"/>
+
+        <RadioButton
+            android:id="@+id/southHemisphereButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Południowa - S" />
+    </RadioGroup>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
