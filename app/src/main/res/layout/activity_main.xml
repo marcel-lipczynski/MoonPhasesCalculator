@@ -17,7 +17,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nextFullMoon"
+        app:layout_constraintTop_toBottomOf="@+id/nextFullMoonText"
         app:layout_constraintVertical_bias="0.806" />
 
     <TextView
@@ -59,7 +59,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/previousNewMoon"
+        android:id="@+id/previousNewMoonText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Poprzedni nów: 12.03.2019 r."
@@ -71,7 +71,7 @@
         app:layout_constraintVertical_bias="0.08" />
 
     <TextView
-        android:id="@+id/nextFullMoon"
+        android:id="@+id/nextFullMoonText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Następna pełnia: 9.04.2019 r."
@@ -80,7 +80,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/previousNewMoon"
+        app:layout_constraintTop_toBottomOf="@+id/previousNewMoonText"
         app:layout_constraintVertical_bias="0.07" />
 
     <Button
@@ -94,7 +94,7 @@
         app:layout_constraintBottom_toTopOf="@+id/settingsButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nextFullMoon"
+        app:layout_constraintTop_toBottomOf="@+id/nextFullMoonText"
         app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
