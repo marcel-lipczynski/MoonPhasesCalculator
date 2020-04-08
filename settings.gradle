@@ -1,0 +1,2 @@
+rootProject.name='MoonPhases'
+include ':app'
