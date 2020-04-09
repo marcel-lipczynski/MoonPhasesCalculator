@@ -22,7 +22,7 @@ class FullMoonList : AppCompatActivity() {
 
         val extras = intent.extras ?: return
         usedAlgorithm = extras.getString("algorithm").toString()
-        val currentlyUsedAlgorithm = "Currently used algorithm: $usedAlgorithm"
+        val currentlyUsedAlgorithm = "Aktualnie używany algorytm: $usedAlgorithm"
         algorithmInfo.text = currentlyUsedAlgorithm
         adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, listItems)
         fullMoonList.adapter = adapter
