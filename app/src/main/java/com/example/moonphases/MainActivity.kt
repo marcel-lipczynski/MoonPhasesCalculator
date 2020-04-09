@@ -1,20 +1,24 @@
 package com.example.moonphases
 
 import MoonPhaseCalculator
+import android.app.Activity
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import kotlinx.android.synthetic.main.activity_main.*
 import java.text.SimpleDateFormat
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
-    val mapOfNorthPictures: Map<Int, String> = mapOf()
+    val REQUEST_CODE = 997
 
-    var currentMoonPhase: Int = 0
     private val calculator: MoonPhaseCalculator = MoonPhaseCalculator()
+    var currentMoonPhase: Int = 0
     val dateFormat = SimpleDateFormat("dd.MM.yyyy", Locale.US)
     var currentHemisphere: String = "N"
+    var currentAlgorithm: String = "Trig1"
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,25 +41,25 @@ class MainActivity : AppCompatActivity() {
         val nextNewMoon = daysTillNextNewMoon()
 
         val previousNewMoon = getPreviousNewMoon()
-        val previousNewMoonFormatted = "Poprzedni nów " + dateFormat.format(previousNewMoon.time) + " r."
+        val previousNewMoonFormatted =
+            "Poprzedni nów " + dateFormat.format(previousNewMoon.time) + " r."
 
         val nextFullMoon = getNextFullMoon()
-        val nextFullMoonFormatted = "Następna pełnia " + dateFormat.format(nextFullMoon.time) + " r."
+        val nextFullMoonFormatted =
+            "Następna pełnia " + dateFormat.format(nextFullMoon.time) + " r."
 
 //        val daysBetweenNewMoons = ceil((nextNewMoon.timeInMillis - previousNewMoon.timeInMillis).toDouble() / (1000 * 60 * 60 * 24))
 
         //nextNewMoon - przechowuje wartość dni do następnego nowiu, currentMoonPhase ile dni upłynęło od ostatniego nowiu razem
         // dają ilość dni pomiędzy następnym i kolejnym nowiem
-        val phasePercentage = "Dzisiaj: " + (100*(currentMoonPhase)/(nextNewMoon+currentMoonPhase)) + "%"
+        val phasePercentage =
+            "Dzisiaj: " + (100 * (currentMoonPhase) / (nextNewMoon + currentMoonPhase)) + "%"
 
         todaysPhasePercentage.text = phasePercentage
         previousNewMoonText.text = previousNewMoonFormatted
         nextFullMoonText.text = nextFullMoonFormatted
 
         //setting picture
-
-
-
 
 
 //        It is needed to change resource of the photo!!!!
@@ -76,7 +80,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun getNextFullMoon(): Calendar {
-        var i: Int = 1
+        var i = 1
         var nextFullMoon: Int
         var calendar: Calendar
         do {
@@ -94,7 +98,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun getPreviousNewMoon(): Calendar {
 
-        var i: Int = 1
+        var i = 1
         var previousNewMoon: Int
         var calendar: Calendar
         do {
@@ -113,7 +117,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun daysTillNextNewMoon(): Int {
 
-        var i: Int = 1
+        var i = 1
         var previousNewMoon: Int
         var calendar: Calendar
         do {
@@ -126,8 +130,44 @@ class MainActivity : AppCompatActivity() {
             i++
         } while (previousNewMoon != 0)
 
-        return i-1
+        return i - 1
     }
+
+    fun onFullMoonListButtonClick(view: View){
+        showFullMoonListActivity()
+    }
+
+    fun onSettingsButtonClick(view: View) {
+        showSettingsActivity()
+    }
+
+    private fun showSettingsActivity() {
+        val i = Intent(this, Settings::class.java)
+        i.putExtra("hemisphere", currentHemisphere)
+        i.putExtra("algorithm", currentAlgorithm)
+        startActivityForResult(i, REQUEST_CODE)
+    }
+
+    private fun showFullMoonListActivity(){
+        val i = Intent(this, FullMoonList::class.java)
+        i.putExtra("algorithm", currentAlgorithm)
+        startActivity(i)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if ((requestCode == REQUEST_CODE) && (resultCode == Activity.RESULT_OK)) {
+            if (data != null) {
+                if (data.hasExtra("hemisphere") && data.hasExtra("algorithm")) {
+                    currentAlgorithm = data.extras?.getString("algorithm").toString()
+                    currentHemisphere = data.extras?.getString("hemisphere").toString()
+
+                }
+            }
+        }
+    }
+
+
 
 
 }

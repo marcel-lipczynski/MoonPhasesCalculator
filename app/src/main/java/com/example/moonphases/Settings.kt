@@ -1,5 +1,7 @@
 package com.example.moonphases
 
+import android.app.Activity
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -15,6 +17,9 @@ class Settings : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
+        val extras = intent.extras ?: return
+        algorithmSettings = extras.getString("algorithm").toString()
+        hemisphereSettings = extras.getString("hemisphere").toString()
     }
 
     fun onClickHemisphereButton(view: View) {
@@ -33,6 +38,18 @@ class Settings : AppCompatActivity() {
             applicationContext, "Chosen algorithm : ${clickedButton.text}",
             Toast.LENGTH_SHORT
         ).show()
+    }
+
+    override fun finish() {
+        val data = Intent()
+
+        data.putExtra("hemisphere", hemisphereSettings)
+        data.putExtra("algorithm", algorithmSettings)
+
+        setResult(Activity.RESULT_OK, data)
+
+        super.finish()
+
     }
 
 }

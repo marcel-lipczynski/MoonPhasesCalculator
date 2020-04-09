@@ -35,7 +35,6 @@
             android:id="@+id/trig1Button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:checked="true"
             android:text="Trig1"
             android:onClick="onClickAlgorithmButton"/>
 
@@ -102,7 +101,6 @@
             android:id="@+id/northHemisphereButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:checked="true"
             android:text="N"
             android:onClick="onClickHemisphereButton"/>
 
