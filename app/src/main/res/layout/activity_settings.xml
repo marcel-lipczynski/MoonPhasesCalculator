@@ -8,8 +8,8 @@
 
     <RadioGroup
         android:id="@+id/algorithmSelect"
-        android:layout_width="364dp"
-        android:layout_height="139dp"
+        android:layout_width="358dp"
+        android:layout_height="126dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.457"
@@ -21,26 +21,30 @@
             android:id="@+id/simpleButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Simple" />
+            android:text="Simple"
+            android:onClick="onClickAlgorithmButton"/>
 
         <RadioButton
             android:id="@+id/conwayButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Conway" />
+            android:text="Conway"
+            android:onClick="onClickAlgorithmButton"/>
 
         <RadioButton
             android:id="@+id/trig1Button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Trig 1"
-            android:checked="true"/>
+            android:checked="true"
+            android:text="Trig1"
+            android:onClick="onClickAlgorithmButton"/>
 
         <RadioButton
             android:id="@+id/trig2Button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Trig2" />
+            android:text="Trig2"
+            android:onClick="onClickAlgorithmButton"/>
 
     </RadioGroup>
 
@@ -85,8 +89,8 @@
 
     <RadioGroup
         android:id="@+id/hemisphereSelect"
-        android:layout_width="364dp"
-        android:layout_height="98dp"
+        android:layout_width="356dp"
+        android:layout_height="65dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.468"
@@ -98,14 +102,16 @@
             android:id="@+id/northHemisphereButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Północna - N"
-            android:checked="true"/>
+            android:checked="true"
+            android:text="N"
+            android:onClick="onClickHemisphereButton"/>
 
         <RadioButton
             android:id="@+id/southHemisphereButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Południowa - S" />
+            android:text="S"
+            android:onClick="onClickHemisphereButton"/>
     </RadioGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,6 +10,9 @@ import kotlin.math.sin
 
 class MoonPhaseCalculator {
 
+
+
+
     fun Conway(year: Int, month: Int, day: Int): Int {
         var r: Double = year.toDouble() % 100.0;
         r %= 19.0;
@@ -66,6 +69,7 @@ class MoonPhaseCalculator {
         }
         val finalValue = (thisJD - oldJ) % 30
         return finalValue.toInt()
+
     }
 
     fun Trig2(year: Int, month: Int, day: Int): Int {
@@ -86,7 +90,7 @@ class MoonPhaseCalculator {
 
         val j1 = julday(year, month, day)
         val jd = (2415020 + 28 * n) + i
-        return (j1 - jd + 30).toInt() % 30;
+        return ((j1 - jd + 30) % 30).toInt();
     }
 
 
