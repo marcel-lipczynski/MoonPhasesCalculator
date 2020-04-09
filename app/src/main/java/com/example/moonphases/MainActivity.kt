@@ -43,6 +43,10 @@ class MainActivity : AppCompatActivity() {
 
         previousNewMoonText.text = previousNewMoonFormatted
         nextFullMoonText.text = nextFullMoonFormatted
+
+//        It is needed to change resource of the photo!!!!
+//        currentPhaseImage.setImageResource(R.drawable.s47_4p)
+
     }
 
     private fun getDaysAgo(daysAgo: Int): Calendar {
