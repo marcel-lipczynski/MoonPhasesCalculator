@@ -16,6 +16,7 @@ import java.util.*
 class MainActivity : AppCompatActivity() {
 
     var currentMoonPhase: Int = 0
+    var currentMoonPhase2: Int = 0
     private val calculator: MoonPhaseCalculator = MoonPhaseCalculator()
     val dateFormat = SimpleDateFormat("dd.MM.yyyy", Locale.US)
 
@@ -35,12 +36,20 @@ class MainActivity : AppCompatActivity() {
             todaysDate.get(Calendar.DATE)
         )
 
+        currentMoonPhase2 = calculator.Trig2(
+            todaysDate.get(Calendar.YEAR),
+            todaysDate.get(Calendar.MONTH) + 1,
+            todaysDate.get(Calendar.DATE)
+        )
+
+
         val previousNewMoon = getPreviousNewMoon().time
         val previousNewMoonFormatted = "Poprzedni nów " + dateFormat.format(previousNewMoon) + " r."
 
         val nextFullMoon = getNextFullMoon().time
         val nextFullMoonFormatted = "Następna pełnia " + dateFormat.format(nextFullMoon) + " r."
 
+        todaysPhasePercentage.text = currentMoonPhase2.toString()
         previousNewMoonText.text = previousNewMoonFormatted
         nextFullMoonText.text = nextFullMoonFormatted
 
