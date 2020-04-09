@@ -2,16 +2,17 @@ import android.os.Build
 import java.lang.Integer.parseInt
 
 import java.sql.Date
+import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.time.LocalDateTime
+import java.util.*
 import kotlin.math.ceil
 import kotlin.math.floor
 import kotlin.math.sin
 
 class MoonPhaseCalculator {
 
-
-
+    val dateFormat = SimpleDateFormat("dd.MM.yyyy", Locale.US)
 
     fun Conway(year: Int, month: Int, day: Int): Int {
         var r: Double = year.toDouble() % 100.0;
@@ -112,6 +113,72 @@ class MoonPhaseCalculator {
             jul = jul + 2 - ja + floor(0.25 * ja);
         }
         return jul;
+    }
+
+    private fun getDaysAgo(daysAgo: Int): Calendar {
+        val calendar = Calendar.getInstance()
+        calendar.add(Calendar.DAY_OF_YEAR, -daysAgo)
+        return calendar
+    }
+
+    private fun getDaysAfter(getDaysAfter: Int): Calendar {
+        val calendar = Calendar.getInstance()
+        calendar.add(Calendar.DAY_OF_YEAR, getDaysAfter)
+        return calendar
+    }
+
+    fun getNextFullMoon(): Calendar {
+        var i = 1
+        var nextFullMoon: Int
+        var calendar: Calendar
+        do {
+            calendar = getDaysAfter(i)
+            nextFullMoon = Conway(
+                calendar.get(Calendar.YEAR),
+                calendar.get(Calendar.MONTH) + 1,
+                calendar.get(Calendar.DATE)
+            )
+            i++
+        } while (nextFullMoon != 15)
+
+        return calendar
+    }
+
+    fun getPreviousNewMoon(): Calendar {
+
+        var i = 1
+        var previousNewMoon: Int
+        var calendar: Calendar
+        do {
+            calendar = getDaysAgo(i)
+            previousNewMoon = Conway(
+                calendar.get(Calendar.YEAR),
+                calendar.get(Calendar.MONTH) + 1,
+                calendar.get(Calendar.DATE)
+            )
+            i++
+        } while (previousNewMoon != 0)
+
+        return calendar
+    }
+
+
+    fun daysTillNextNewMoon(): Int {
+
+        var i = 1
+        var previousNewMoon: Int
+        var calendar: Calendar
+        do {
+            calendar = getDaysAfter(i)
+            previousNewMoon = Conway(
+                calendar.get(Calendar.YEAR),
+                calendar.get(Calendar.MONTH) + 1,
+                calendar.get(Calendar.DATE)
+            )
+            i++
+        } while (previousNewMoon != 0)
+
+        return i - 1
     }
 
 

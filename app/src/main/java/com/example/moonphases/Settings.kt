@@ -26,7 +26,7 @@ class Settings : AppCompatActivity() {
         val clickedButton: RadioButton = findViewById(hemisphereSelect.checkedRadioButtonId)
         hemisphereSettings = clickedButton.text.toString()
         Toast.makeText(
-            applicationContext, "Chosen hemisphere : ${clickedButton.text}",
+            applicationContext, "Wybrana półkula: ${clickedButton.text}",
             Toast.LENGTH_SHORT
         ).show()
     }
@@ -35,7 +35,7 @@ class Settings : AppCompatActivity() {
         val clickedButton: RadioButton = findViewById(algorithmSelect.checkedRadioButtonId)
         algorithmSettings = clickedButton.text.toString()
         Toast.makeText(
-            applicationContext, "Chosen algorithm : ${clickedButton.text}",
+            applicationContext, "Wybrany algorytm: ${clickedButton.text}",
             Toast.LENGTH_SHORT
         ).show()
     }
