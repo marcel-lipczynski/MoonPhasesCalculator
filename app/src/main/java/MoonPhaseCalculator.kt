@@ -1,11 +1,6 @@
-import android.os.Build
 import com.example.moonphases.R
-import java.lang.Integer.parseInt
 
-import java.sql.Date
 import java.text.SimpleDateFormat
-import java.time.LocalDate
-import java.time.LocalDateTime
 import java.util.*
 import kotlin.math.ceil
 import kotlin.math.floor
@@ -224,29 +219,30 @@ class MoonPhaseCalculator {
             R.drawable.s86_4p,
             R.drawable.s92_7p,
             R.drawable.s99_4p,
-            R.drawable.s0_1p_,
-            R.drawable.s1_4p_,
-            R.drawable.s5_4p_,
-            R.drawable.s11_7p_,
-            R.drawable.s19_7p_,
-            R.drawable.s28_9p_,
-            R.drawable.s38_7p_,
-            R.drawable.s48_7p_,
-            R.drawable.s58_5p_,
-            R.drawable.s67_7p_,
-            R.drawable.s76_2p_,
-            R.drawable.s83_8p_,
-            R.drawable.s90_1p_,
-            R.drawable.s95p_,
+            R.drawable.s99_8p_,
             R.drawable.s98_3p_,
-            R.drawable.s99_8p_
+            R.drawable.s95p_,
+            R.drawable.s90_1p_,
+            R.drawable.s83_8p_,
+            R.drawable.s76_2p_,
+            R.drawable.s67_7p_,
+            R.drawable.s58_5p_,
+            R.drawable.s48_7p_,
+            R.drawable.s38_7p_,
+            R.drawable.s28_9p_,
+            R.drawable.s19_7p_,
+            R.drawable.s11_7p_,
+            R.drawable.s5_4p_,
+            R.drawable.s1_4p_,
+            R.drawable.s0_1p_
         )
         return images
 
     }
 
     fun getImagesNorth(): IntArray{
-        val images = intArrayOf(
+
+        return intArrayOf(
             R.drawable.n0_1p,
             R.drawable.n1_2p,
             R.drawable.n4_5p,
@@ -262,24 +258,22 @@ class MoonPhaseCalculator {
             R.drawable.n95p,
             R.drawable.n98_7p,
             R.drawable.n99_9p,
-            R.drawable.n0_4p_,
-            R.drawable.n2_8p_,
-            R.drawable.n7_3p_,
-            R.drawable.n13_5p_,
-            R.drawable.n21p_,
-            R.drawable.n29_5p_,
-            R.drawable.n38_6p_,
-            R.drawable.n48p_,
-            R.drawable.n57_4p_,
-            R.drawable.n66_7p_,
-            R.drawable.n75_4p_,
-            R.drawable.n83_3p_,
-            R.drawable.n90p_,
+            R.drawable.n98_7p_,
             R.drawable.n95_3p_,
-            R.drawable.n98_7p_
+            R.drawable.n90p_,
+            R.drawable.n83_3p_,
+            R.drawable.n75_4p_,
+            R.drawable.n66_7p_,
+            R.drawable.n57_4p_,
+            R.drawable.n48p_,
+            R.drawable.n38_6p_,
+            R.drawable.n29_5p_,
+            R.drawable.n21p_,
+            R.drawable.n13_5p_,
+            R.drawable.n7_3p_,
+            R.drawable.n2_8p_,
+            R.drawable.n0_4p_
         )
-
-        return images
     }
 }
 
