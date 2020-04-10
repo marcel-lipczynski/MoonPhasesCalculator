@@ -121,12 +121,19 @@ class FullMoonList : AppCompatActivity() {
                     )
 
                 } else {
-//                    currentMoonPhase = calculator.Simple(
-//                        firstDayOfGivenYear.get(Calendar.YEAR),
-//                        firstDayOfGivenYear.get(Calendar.MONTH) + 1,
-//                        firstDayOfGivenYear.get(Calendar.DATE)
-//                    )
-                    return
+                    if(currentYearValueInt < 1970){
+                        Toast.makeText(
+                            applicationContext, "Obecny algorytm wymaga roku conajmniej 1970",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        return
+                    }
+                    currentMoonPhase = calculator.Simple(
+                        firstDayOfGivenYear.get(Calendar.YEAR),
+                        firstDayOfGivenYear.get(Calendar.MONTH),
+                        firstDayOfGivenYear.get(Calendar.DATE)
+                    )
+
 
                 }
 

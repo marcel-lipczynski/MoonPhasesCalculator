@@ -14,6 +14,31 @@ class MoonPhaseCalculator {
 
     val dateFormat = SimpleDateFormat("dd.MM.yyyy", Locale.US)
 
+
+    fun Simple(year: Int, month: Int, day: Int): Int {
+        val lp = 2551443;
+
+        val fullMoon1970 = Calendar.getInstance()
+        fullMoon1970.set(Calendar.YEAR, 1970)
+        fullMoon1970.set(Calendar.MONTH, 0)
+        fullMoon1970.set(Calendar.DAY_OF_MONTH, 7)
+        fullMoon1970.set(Calendar.HOUR_OF_DAY, 20)
+        fullMoon1970.set(Calendar.MINUTE, 35)
+        fullMoon1970.set(Calendar.SECOND, 0)
+
+        val todaysDate = Calendar.getInstance()
+        todaysDate.set(Calendar.YEAR, year)
+        todaysDate.set(Calendar.MONTH, month)
+        todaysDate.set(Calendar.DAY_OF_MONTH, day)
+        todaysDate.set(Calendar.HOUR_OF_DAY, 20)
+        todaysDate.set(Calendar.MINUTE, 35)
+        todaysDate.set(Calendar.SECOND, 0)
+
+
+        val phase = ((todaysDate.timeInMillis - fullMoon1970.timeInMillis).toDouble() / 1000.0) % lp;
+        return (floor(phase / (24.0 * 3600.0)) + 1.0).toInt();
+    }
+
     fun Conway(year: Int, month: Int, day: Int): Int {
         var r: Double = year.toDouble() % 100.0;
         r %= 19.0;
