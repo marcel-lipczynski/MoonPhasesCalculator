@@ -62,11 +62,21 @@ class FullMoonList : AppCompatActivity() {
 
     fun addItem(view: View) {
 
+        if (yearInput.text.isEmpty()) {
+            Toast.makeText(
+                applicationContext, "Nie wprowadziłeś roku",
+                Toast.LENGTH_SHORT
+            ).show()
+            return
+
+        }
+
         listItems.clear()
 
         var currentMoonPhase: Int
 
         val currentYearValue = yearInput.text.toString()
+
         val currentYearValueInt = Integer.parseInt(currentYearValue)
 
         var firstDayOfGivenYear = Calendar.getInstance()
@@ -78,9 +88,7 @@ class FullMoonList : AppCompatActivity() {
         lastDayOfGivenYear.set(Calendar.MONTH, 11)
         lastDayOfGivenYear.set(Calendar.DAY_OF_MONTH, 31)
 
-        if (currentYearValue == "") {
-            return
-        } else if (currentYearValueInt < 1900 || currentYearValueInt > 2200) {
+        if (currentYearValueInt < 1900 || currentYearValueInt > 2200) {
             Toast.makeText(
                 applicationContext, "Wprowadź roku z zakresu 1900-2200",
                 Toast.LENGTH_SHORT
